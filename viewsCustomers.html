@@ -1,0 +1,46 @@
+<h3>العملاء</h3>
+
+<table>
+    <tr>
+        <th>الاسم</th>
+        <th>الهاتف</th>
+        <th>العنوان</th>
+        <th>إجراء</th>
+    </tr>
+    <tr>
+        <td>أحمد محمد</td>
+        <td>01001234567</td>
+        <td>القاهرة</td>
+        <td><button onclick="alert('تم حذف أحمد')">حذف</button></td>
+    </tr>
+    <tr>
+        <td>فاطمة علي</td>
+        <td>01109876543</td>
+        <td>الجيزة</td>
+        <td><button onclick="alert('تم حذف فاطمة')">حذف</button></td>
+    </tr>
+</table>
+
+<hr>
+
+<h4>إضافة عميل جديد</h4>
+<input type="text" id="name" placeholder="الاسم" />
+<input type="text" id="phone" placeholder="الهاتف" />
+<input type="text" id="address" placeholder="العنوان" />
+<button onclick="addCustomer()">حفظ</button>
+
+<script>
+function addCustomer() {
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const address = document.getElementById('address').value;
+    
+    if (name && phone) {
+        alert(`تم حفظ العميل: ${name}`);
+        // إعادة تحميل الشاشة
+        LoadView('Customers');
+    } else {
+        alert('املأ كل الحقول');
+    }
+}
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>نظام ERP - نموذج أولي</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+    <!-- القائمة الجانبية -->
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="#">بيانات رئيسية</a>
+                <ul class="submenu">
+                    <li><a onclick="LoadView('MStores')">المخازن</a></li>
+                    <li><a onclick="LoadView('Customers')">العملاء</a></li>
+                    <li><a onclick="LoadView('Suppliers')">الموردين</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">المبيعات</a>
+                <ul class="submenu">
+                    <li><a onclick="LoadView('P_SalesInvoice')">فاتورة مبيعات</a></li>
+                    <li><a onclick="LoadView('P_SalesReturn')">مرتجع مبيعات</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">المشتريات</a>
+                <ul class="submenu">
+                    <li><a onclick="LoadView('P_PurchasingInvoice')">فاتورة مشتريات</a></li>
+                </ul>
+            </li>
+            <li><a onclick="LoadView('Employees')">الموظفين</a></li>
+        </ul>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <div id="page-content">
+        <h2>مرحباً بك في النظام</h2>
+        <p>اختر من القائمة الجانبية لعرض الشاشة</p>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
