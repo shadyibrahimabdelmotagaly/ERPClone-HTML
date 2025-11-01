@@ -1,46 +1,16 @@
-function loadPage(page) {
-    const container = document.getElementById('page-container');
-    const dashboard = document.getElementById('dashboard');
+function goToPage(page) {
+    // أنيميشن خروج
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.3s';
 
-    if (!container || !dashboard) return;
-
-    // إخفاء الداشبورد
-    dashboard.classList.add('animate__animated', 'animate__fadeOut');
-    
     setTimeout(() => {
-        dashboard.classList.add('d-none');
-        container.classList.remove('d-none');
-        container.innerHTML = '<div class="text-center mt-5"><div class="spinner-border text-primary" style="width:3rem;height:3rem;"></div></div>';
-
-        // المسار الصحيح داخل pages/
-        fetch(`pages/${page}`)
-            .then(response => {
-                if (!response.ok) throw new Error('Page not found');
-                return response.text();
-            })
-            .then(html => {
-                container.innerHTML = html;
-                container.classList.add('page-transition');
-            })
-            .catch(err => {
-                console.error(err);
-                container.innerHTML = '<div class="alert alert-danger">فشل تحميل الصفحة: ' + page + '</div>';
-            });
-    }, 500);
+        // الانتقال للصفحة
+        window.location.href = page;
+    }, 300);
 }
 
-function goBack() {
-    const container = document.getElementById('page-container');
-    const dashboard = document.getElementById('dashboard');
-
-    if (!container || !dashboard) return;
-
-    container.classList.add('animate__animated', 'animate__fadeOut');
-    setTimeout(() => {
-        container.classList.add('d-none');
-        container.classList.remove('page-transition');
-        container.innerHTML = '';
-        dashboard.classList.remove('d-none');
-        dashboard.classList.add('animate__animated', 'animate__fadeIn');
-    }, 500);
-}
+// عند تحميل أي صفحة
+window.addEventListener('load', () => {
+    document.body.style.opacity = '1';
+    document.body.style.transition = 'opacity 0.5s';
+});
