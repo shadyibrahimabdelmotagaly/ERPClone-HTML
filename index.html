@@ -3,87 +3,79 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>ERPClone - GPT TEST 8</title>
-
-    <!-- Bootstrap + Font Awesome + Animate.css -->
+    <title>العملاء - ERP Pro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="bg-gradient">
+<body class="bg-light">
 
-    <!-- شريط علوي -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="index.html">
-                <i class="fas fa-cogs me-2"></i> ERPClone - GPT TEST 8
+                <i class="fas fa-arrow-left me-2"></i> رجوع للرئيسية
             </a>
-            <div class="d-flex align-items-center text-white">
-                <i class="fas fa-search me-3"></i>
-                <i class="fas fa-bell me-3"></i>
-                <span>شادي إبراهيم</span>
-            </div>
         </div>
     </nav>
 
-    <!-- Dashboard -->
-    <main class="container mt-5 pt-5" id="dashboard">
-        <h2 class="text-center text-white mb-5 animate__animated animate__fadeIn">لوحة التحكم - ERPClone</h2>
+    <div class="container mt-5 page-enter">
+        <h3 class="text-primary mb-4"><i class="fas fa-users"></i> إدارة العملاء</h3>
 
-        <div class="row g-4 justify-content-center">
-
-            <!-- العملاء -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="icon-wrap">
-                    <div class="icon-card bg-gradient-purple animate__animated animate__bounceIn" 
-                         data-page="pages/customers.html" tabindex="0" aria-label="العملاء">
-                        <div class="icon-inner">
-                            <i class="fas fa-users fa-3x"></i>
-                        </div>
-                        <h5>العملاء</h5>
-                        <p class="muted">150 عميل</p>
-                    </div>
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>الاسم</th>
+                                <th>الهاتف</th>
+                                <th>الرصيد</th>
+                                <th>إجراء</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>أحمد محمد</td>
+                                <td>01001234567</td>
+                                <td class="text-success">5,200 ج.م</td>
+                                <td><button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td>فاطمة علي</td>
+                                <td>01109876543</td>
+                                <td class="text-danger">-800 ج.م</td>
+                                <td><button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-
-            <!-- المبيعات -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="icon-wrap">
-                    <div class="icon-card bg-gradient-blue animate__animated animate__bounceIn" 
-                         data-page="pages/sales.html" tabindex="0" aria-label="المبيعات">
-                        <div class="icon-inner">
-                            <i class="fas fa-chart-line fa-3x"></i>
-                        </div>
-                        <h5>المبيعات</h5>
-                        <p class="muted">25,000 جنيه</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- المخزون -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="icon-wrap">
-                    <div class="icon-card bg-gradient-green animate__animated animate__bounceIn" 
-                         data-page="pages/inventory.html" tabindex="0" aria-label="المخزون">
-                        <div class="icon-inner">
-                            <i class="fas fa-boxes fa-3x"></i>
-                        </div>
-                        <h5>المخزون</h5>
-                        <p class="muted">1,240 صنف</p>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </main>
 
-    <!-- footer (اختياري) -->
-    <footer class="text-center text-white-50 mt-5 mb-3">
-        <small>ERPClone • GPT TEST 8</small>
-    </footer>
+        <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#addCustomer">
+            <i class="fas fa-plus"></i> إضافة عميل
+        </button>
+    </div>
 
-    <!-- JS -->
+    <!-- Modal -->
+    <div class="modal fade" id="addCustomer">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">إضافة عميل جديد</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control mb-3" placeholder="الاسم الكامل">
+                    <input type="text" class="form-control" placeholder="رقم الهاتف">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success">حفظ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
 </body>
