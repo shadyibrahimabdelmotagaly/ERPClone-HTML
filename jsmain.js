@@ -1,4 +1,4 @@
-function loadPage(url) {
+function loadPage(page) {
     const container = document.getElementById('page-container');
     const dashboard = document.getElementById('dashboard');
 
@@ -12,16 +12,19 @@ function loadPage(url) {
         container.classList.remove('d-none');
         container.innerHTML = '<div class="text-center mt-5"><div class="spinner-border text-primary" style="width:3rem;height:3rem;"></div></div>';
 
-        // استخدام المسار المطلق
-        fetch(url)
-            .then(r => r.text())
+        // المسار الصحيح داخل pages/
+        fetch(`pages/${page}`)
+            .then(response => {
+                if (!response.ok) throw new Error('Page not found');
+                return response.text();
+            })
             .then(html => {
                 container.innerHTML = html;
                 container.classList.add('page-transition');
             })
             .catch(err => {
                 console.error(err);
-                container.innerHTML = '<div class="alert alert-danger">فشل تحميل الصفحة</div>';
+                container.innerHTML = '<div class="alert alert-danger">فشل تحميل الصفحة: ' + page + '</div>';
             });
     }, 500);
 }

@@ -32,30 +32,12 @@ body {
     transform: scale(1.2);
 }
 
-.icon-card h5 {
-    margin: 10px 0;
-    font-weight: 600;
-}
-
-.icon-card p {
-    color: #777;
-    font-size: 14px;
-}
-
-/* ألوان Odoo */
 .bg-gradient-purple { background: linear-gradient(45deg, #9d4edd, #c77dff); color: white; }
 .bg-gradient-blue { background: linear-gradient(45deg, #4361ee, #3f37c9); color: white; }
 .bg-gradient-green { background: linear-gradient(45deg, #06ffa6, #00bf8e); color: white; }
-.bg-gradient-orange { background: linear-gradient(45deg, #ff6b6b, #ee5a52); color: white; }
-.bg-gradient-teal { background: linear-gradient(45deg, #00d2d3, #00a8a8); color: white; }
-.bg-gradient-gray { background: linear-gradient(45deg, #6c757d, #495057); color: white; }
 
-.bg-gradient-purple i, .bg-gradient-blue i, .bg-gradient-green i,
-.bg-gradient-orange i, .bg-gradient-teal i, .bg-gradient-gray i {
-    color: white;
-}
+.bg-gradient-purple i, .bg-gradient-blue i, .bg-gradient-green i { color: white; }
 
-/* أنيميشن الصفحات */
 .page-transition {
     animation: slideIn 0.5s ease-out;
 }
