@@ -1,53 +1,51 @@
 * { box-sizing: border-box; }
 body {
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-    margin: 0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .icon-card {
-    background: white;
-    border-radius: 20px;
-    padding: 25px;
-    text-align: center;
-    color: #333;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
-    height: 100%;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  height: 100%;
 }
 
 .icon-card:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  filter: brightness(1.1);
 }
 
 .icon-card i {
-    margin-bottom: 15px;
-    transition: all 0.3s;
+  margin-bottom: 15px;
+  transition: all 0.3s;
 }
 
 .icon-card:hover i {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .icon-card-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
-.bg-gradient-purple { background: linear-gradient(45deg, #9d4edd, #c77dff); color: white; }
-.bg-gradient-blue { background: linear-gradient(45deg, #4361ee, #3f37c9); color: white; }
-.bg-gradient-green { background: linear-gradient(45deg, #06ffa6, #00bf8e); color: white; }
+.bg-gradient-purple { background: linear-gradient(45deg, #9d4edd, #c77dff); }
+.bg-gradient-blue { background: linear-gradient(45deg, #4361ee, #3f37c9); }
+.bg-gradient-green { background: linear-gradient(45deg, #06ffa6, #00bf8e); }
 
-.bg-gradient-purple i, .bg-gradient-blue i, .bg-gradient-green i { color: white; }
-
-.page-enter {
-    animation: slideInRight 0.5s ease-out;
-}
+.page-enter { animation: slideInRight 0.5s ease-out; }
 
 @keyframes slideInRight {
-    from { transform: translateX(100%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }
