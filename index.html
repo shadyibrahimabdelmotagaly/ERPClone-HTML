@@ -4,44 +4,116 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>نظام ERP - نموذج أولي</title>
+
+    <!-- Bootstrap 5 + Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body class="bg-light">
 
     <!-- القائمة الجانبية -->
-    <div class="sidebar">
-        <ul>
-            <li>
-                <a href="#">بيانات رئيسية</a>
-                <ul class="submenu">
-                    <li><a onclick="LoadView('MStores')">المخازن</a></li>
-                    <li><a onclick="LoadView('Customers')">العملاء</a></li>
-                    <li><a onclick="LoadView('Suppliers')">الموردين</a></li>
-                </ul>
+    <nav class="sidebar bg-primary text-white vh-100 position-fixed p-3" style="width: 260px; z-index: 1000;">
+        <div class="text-center mb-4">
+            <h4 class="text-white"><i class="fas fa-cogs me-2"></i> نظام ERP</h4>
+        </div>
+        <ul class="nav flex-column">
+
+            <!-- بيانات رئيسية -->
+            <li class="nav-item">
+                <a class="nav-link text-white" data-bs-toggle="collapse" href="#dataSubmenu">
+                    <i class="fas fa-database me-2"></i> بيانات رئيسية
+                </a>
+                <div class="collapse" id="dataSubmenu">
+                    <ul class="nav flex-column ms-3">
+                        <li><a class="nav-link text-white" onclick="LoadView('MStores')"><i class="fas fa-warehouse me-2"></i> المخازن</a></li>
+                        <li><a class="nav-link text-white" onclick="LoadView('Customers')"><i class="fas fa-users me-2"></i> العملاء</a></li>
+                        <li><a class="nav-link text-white" onclick="LoadView('Suppliers')"><i class="fas fa-truck me-2"></i> الموردين</a></li>
+                    </ul>
+                </div>
             </li>
-            <li>
-                <a href="#">المبيعات</a>
-                <ul class="submenu">
-                    <li><a onclick="LoadView('P_SalesInvoice')">فاتورة مبيعات</a></li>
-                    <li><a onclick="LoadView('P_SalesReturn')">مرتجع مبيعات</a></li>
-                </ul>
+
+            <!-- المبيعات -->
+            <li class="nav-item">
+                <a class="nav-link text-white" data-bs-toggle="collapse" href="#salesSubmenu">
+                    <i class="fas fa-shopping-cart me-2"></i> المبيعات
+                </a>
+                <div class="collapse" id="salesSubmenu">
+                    <ul class="nav flex-column ms-3">
+                        <li><a class="nav-link text-white" onclick="LoadView('P_SalesInvoice')"><i class="fas fa-file-invoice me-2"></i> فاتورة مبيعات</a></li>
+                        <li><a class="nav-link text-white" onclick="LoadView('P_SalesReturn')"><i class="fas fa-undo me-2"></i> مرتجع مبيعات</a></li>
+                    </ul>
+                </div>
             </li>
-            <li>
-                <a href="#">المشتريات</a>
-                <ul class="submenu">
-                    <li><a onclick="LoadView('P_PurchasingInvoice')">فاتورة مشتريات</a></li>
-                </ul>
+
+            <!-- المشتريات -->
+            <li class="nav-item">
+                <a class="nav-link text-white" data-bs-toggle="collapse" href="#purchasingSubmenu">
+                    <i class="fas fa-shopping-bag me-2"></i> المشتريات
+                </a>
+                <div class="collapse" id="purchasingSubmenu">
+                    <ul class="nav flex-column ms-3">
+                        <li><a class="nav-link text-white" onclick="LoadView('P_PurchasingInvoice')"><i class="fas fa-file-invoice-dollar me-2"></i> فاتورة مشتريات</a></li>
+                    </ul>
+                </div>
             </li>
-            <li><a onclick="LoadView('Employees')">الموظفين</a></li>
+
+            <!-- الموظفين -->
+            <li class="nav-item">
+                <a class="nav-link text-white" onclick="LoadView('Employees')">
+                    <i class="fas fa-user-tie me-2"></i> الموظفين
+                </a>
+            </li>
+
         </ul>
-    </div>
+    </nav>
 
     <!-- المحتوى الرئيسي -->
-    <div id="page-content">
-        <h2>مرحباً بك في النظام</h2>
-        <p>اختر من القائمة الجانبية لعرض الشاشة</p>
+    <div id="page-content" class="container-fluid" style="margin-right: 270px; padding: 30px;">
+        <!-- Dashboard الرئيسي -->
+        <h2 class="text-primary mb-4"><i class="fas fa-home me-2"></i> لوحة التحكم</h2>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="card text-white bg-primary shadow-sm">
+                    <div class="card-body">
+                        <h5><i class="fas fa-users"></i> عدد العملاء</h5>
+                        <h3 class="mb-0">150</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-success shadow-sm">
+                    <div class="card-body">
+                        <h5><i class="fas fa-coins"></i> المبيعات اليوم</h5>
+                        <h3 class="mb-0">25,000 جنيه</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-warning shadow-sm">
+                    <div class="card-body">
+                        <h5><i class="fas fa-box"></i> المخزون</h5>
+                        <h3 class="mb-0">1,240 صنف</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-danger shadow-sm">
+                    <div class="card-body">
+                        <h5><i class="fas fa-exclamation-triangle"></i> تنبيهات</h5>
+                        <h3 class="mb-0">3</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5 text-center text-muted">
+            <p class="lead">اختر من القائمة الجانبية لعرض الشاشة</p>
+        </div>
     </div>
 
+    <!-- Bootstrap JS + Custom JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

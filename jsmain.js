@@ -1,31 +1,19 @@
 function LoadView(viewName) {
     const content = document.getElementById('page-content');
     
-    // محاكاة تحميل الشاشة
     const views = {
         'Customers': 'views/Customers.html',
-        'MStores': '<h3>شاشة المخازن</h3><p>سيتم تطويرها لاحقًا...</p>',
-        'P_SalesInvoice': '<h3>فاتورة المبيعات</h3><p>جاري التطوير...</p>',
-        'Employees': '<h3>الموظفين</h3><p>قريبًا...</p>'
+        'MStores': '<div class="alert alert-info"><h4><i class="fas fa-warehouse"></i> شاشة المخازن</h4><p>سيتم تطويرها لاحقًا...</p></div>',
+        'P_SalesInvoice': '<div class="alert alert-success"><h4><i class="fas fa-file-invoice"></i> فاتورة المبيعات</h4><p>جاري التطوير...</p></div>',
+        'Employees': '<div class="alert alert-warning"><h4><i class="fas fa-user-tie"></i> الموظفين</h4><p>قريبًا...</p></div>'
     };
 
     if (views[viewName].startsWith('views/')) {
         fetch(views[viewName])
             .then(r => r.text())
             .then(html => content.innerHTML = html)
-            .catch(() => content.innerHTML = '<h3>الشاشة غير موجودة</h3>');
+            .catch(() => content.innerHTML = '<div class="alert alert-danger">الشاشة غير موجودة</div>');
     } else {
         content.innerHTML = views[viewName];
     }
 }
-
-// إظهار/إخفاء القوائم الفرعية
-document.querySelectorAll('.sidebar > ul > li > a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        if (this.nextElementSibling && this.nextElementSibling.classList.contains('submenu')) {
-            e.preventDefault();
-            this.nextElementSibling.style.display = 
-                this.nextElementSibling.style.display === 'block' ? 'none' : 'block';
-        }
-    });
-});
